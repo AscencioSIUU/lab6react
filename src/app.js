@@ -13,7 +13,11 @@ function Memory() {
           './assets/rafa.jpg',
           './assets/rafa.jpg',
           './assets/serena.jpg',
-          './assets/serena.jpg'
+          './assets/serena.jpg',
+          './assets/sabalenka.jpg',
+          './assets/sabalenka.jpg',
+          './assets/sinner.jpg',
+          './assets/sinner.jpg',
      ]
      const [cards, setCards] = useState([]);
      const [flipped, setFlipped] = useState([]);
@@ -29,7 +33,7 @@ function Memory() {
           setMatched([]);
           setGameOver(false);
      }
-     function handleClick() {
+     function handleClick(index) {
           if (flipped.length === 2 || flipped.includes(index) || matched.includes(index)) {
                return;
           }
@@ -55,7 +59,7 @@ function Memory() {
      }, [matched, cards]);
      return (
           <div className="memory-game">
-               <h1>Juego de Memoria</h1>
+               <h1>Memoria en Tenis</h1>
                <p>Movimientos: {moves}</p>
                <div className="grid">
                     {cards.map((card, index) => (
@@ -65,7 +69,9 @@ function Memory() {
                               onClick={() => handleClick(index)}
                          >
                               <div className="card-inner">
-                                   <div className="card-front">❓</div>
+                                   <div className="card-front">
+                                        <img src="./assets/tenisball.jpg" alt="carta" />
+                                   </div>
                                    <div className="card-back">
                                         <img src={card} alt="carta" />
                                    </div>
